@@ -1,4 +1,4 @@
-package org.example.eventloop.base_implement.simplest.core2;
+package org.example.eventloop.base_implement.comfirm_one_thread.core1;
 
 
 public class HandleChain {
@@ -10,20 +10,20 @@ public class HandleChain {
   }
 
   public void addHandle(AbstractHandle abstractHandle) {
-    if(null == abstractHandle){
+    if (null == abstractHandle) {
       return;
     }
     abstractHandle.setSuccessor(null);
-    if(isEmpty()){
+    if (isEmpty()) {
       head = tail = abstractHandle;
-    }else {
+    } else {
       tail.setSuccessor(abstractHandle);
       tail = tail.getSuccessor();
     }
   }
 
-  public void handle(Object o){
-    if(null != head){
+  public void handle(Object o) {
+    if (null != head) {
       head.execute(o);
     }
   }

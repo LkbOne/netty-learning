@@ -1,10 +1,7 @@
-package org.example.eventloop.base_implement.simplest.core2;
+package org.example.eventloop.base_implement.comfirm_one_thread.core1;
 
-import org.example.eventloop.base_implement.comfirm_one_thread.core1.Handle;
 
 import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
 
 public abstract class AbstractHandle implements Handle {
 
@@ -12,8 +9,8 @@ public abstract class AbstractHandle implements Handle {
 
   Executor executor;
 
-  public AbstractHandle() {
-    executor = Executors.newSingleThreadExecutor();
+  public AbstractHandle(Executor exe) {
+    executor = exe;
   }
 
   public void setSuccessor(AbstractHandle abstractHandle) {
@@ -23,6 +20,7 @@ public abstract class AbstractHandle implements Handle {
   public AbstractHandle getSuccessor() {
     return successor;
   }
+
   private void toNext(Object o) {
     if (successor == null) {
       return;
